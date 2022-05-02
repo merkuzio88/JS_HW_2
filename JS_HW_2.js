@@ -15,6 +15,8 @@ function validation(check_string){
     {   if (check_string.length > 0) 
         {
             let isValid = true
+            if (/\s/.test(check_string) == true) 
+            {console.log("String can't contain a space"), isValid = false;}
             if (check_string.length < 5)
             {console.log("String < 5"), isValid = false;}
             if (check_string.length > 64)
