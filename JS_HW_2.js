@@ -12,37 +12,26 @@
 
 function validation(check_string){
     if (typeof check_string == "string")
-    {   var minString
-        var maxString
-        var sobaka
-        var letters
-        var upperCase
-        var numbers
-        var notEmpty
-
-        if (check_string.length < 5)
-        {console.log("String < 5")}
-        else {minString = true}
-        if (check_string.length > 64)
-        {console.log("String > 64")}
-        else {maxString = true}
-        if (check_string.includes("@"))
-        {sobaka = true}
-        else {console.log("Add @")}
-        if (/[A-Za-zА-Яа-я]/.test(check_string))
-        {letters = true}
-        else {console.log("Add letters")}
-        if (/[A-ZА-Я]/.test(check_string))
-        {upperCase = true}
-        else {console.log("Add UpperCase letters")}
-        if (/[0-9]/.test(check_string))
-        {numbers = true}
-        else {console.log("Add numbers")}
-        if (/[^\s]/.test(check_string))
-        {notEmpty = true}
-        else {console.log("Add any symbol")}
-
+    {   if (check_string.length > 0) 
+        {
+            let isValid = true
+            if (check_string.length < 5)
+            {console.log("String < 5"), isValid = false;}
+            if (check_string.length > 64)
+            {console.log("String > 64"), isValid = false;}
+            if (check_string.includes("@") == false)
+            {console.log("Add @"), isValid = false;}
+            if (/[A-Za-zА-Яа-я]/.test(check_string) == false)
+            {console.log("Add letters"), isValid = false;}
+            if (/[A-ZА-Я]/.test(check_string) == false)
+            {console.log("Add UpperCase letters"), isValid = false;}
+            if (/[0-9]/.test(check_string) == false)
+            {console.log("Add numbers"), isValid = false;}
+            if (isValid == true) 
+            {console.log("Validation passed")}
+        }
+        else console.log("Add any symbol")
     }
     else console.log("It is not a string")
 }
-validation("Sample text");
+validation("Sample text")
